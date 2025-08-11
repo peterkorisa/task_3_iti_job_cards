@@ -1,0 +1,13 @@
+<div class="input-group">
+    <input
+      type="search"
+      class="form-control rounded"
+      placeholder="Search"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+    />
+    <button type="button" class="btn btn-outline-primary" (click)="onSearch()">
+      Search
+    </button>
+  </div>
+  

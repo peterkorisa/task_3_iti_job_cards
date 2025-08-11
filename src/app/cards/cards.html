@@ -1,0 +1,31 @@
+<app-search-bar (search)="onSearch($event)"></app-search-bar>
+
+<div class="row mt-3">
+  <div class="col-md-4 mb-4" *ngFor="let user of filteredUsers">
+    <div class="card h-100 shadow-sm">
+      <img class="card-img-top"
+           [src]="user.image"
+           [alt]="user.firstName + ' ' + user.lastName">
+      <div class="card-body">
+        <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+        <p class="card-text">
+          <strong>Role:</strong>
+          <span class="role-badge"
+                [ngClass]="{
+                  'role-admin': user.role === 'admin',
+                  'role-moderator': user.role === 'moderator',
+                  'role-user': user.role === 'user'
+                }">
+            {{ user.role }}
+          </span>
+          <br>
+          <strong>Email:</strong> {{ user.email }}<br>
+          <strong>Phone:</strong> {{ user.phone }}<br>
+          <strong>Username:</strong> {{ user.username }}
+        </p>
+        <a [href]="'mailto:' + user.email"
+           class="btn btn-primary btn-sm">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
